@@ -1,6 +1,6 @@
-# postgres-queue
+# postgres-js-queue
 
-[![npm version](https://img.shields.io/npm/v/postgres-queue?logo=npm)](https://www.npmjs.com/package/postgres-queue) [![npm downloads](https://img.shields.io/npm/dm/postgres-queue?logo=npm)](https://www.npmjs.com/package/postgres-queue) [![license](https://img.shields.io/npm/l/postgres-queue)](./LICENSE) [![typescript](https://img.shields.io/badge/types-TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![npm version](https://img.shields.io/npm/v/postgres-js-queue?logo=npm)](https://www.npmjs.com/package/postgres-js-queue) [![npm downloads](https://img.shields.io/npm/dm/postgres-js-queue?logo=npm)](https://www.npmjs.com/package/postgres-js-queue) [![license](https://img.shields.io/npm/l/postgres-js-queue)](./LICENSE) [![typescript](https://img.shields.io/badge/types-TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 A minimalist PostgreSQL queuing library for Node.js. Built for high performance and simplicity, designed to be used with a `postgres.js` instance.
 
@@ -48,13 +48,13 @@ A minimalist PostgreSQL queuing library for Node.js. Built for high performance 
 
 ```bash
 # pnpm
-pnpm add postgres-queue
+pnpm add postgres-js-queue
 
 # bun
-bun add postgres-queue
+bun add postgres-js-queue
 
 # npm
-npm install postgres-queue
+npm install postgres-js-queue
 ```
 
 ## Migrations
@@ -65,7 +65,7 @@ This package includes a CLI tool to set up the necessary PostgreSQL schema and m
 Create a new migration file in the `migrations/` directory.
 
 ```bash
-npx postgres-queue generate
+npx postgres-js-queue generate
 ```
 
 ### Run Migrations
@@ -78,25 +78,25 @@ Queue storage model:
 
 ### Using pnpm
 ```bash
-PGHOST=localhost PGDATABASE=db pnpm dlx postgres-queue migrate
+PGHOST=localhost PGDATABASE=db pnpm dlx postgres-js-queue migrate
 ```
 
 ### Using bun
 ```bash
-PGHOST=localhost PGDATABASE=db bunx postgres-queue migrate
+PGHOST=localhost PGDATABASE=db bunx postgres-js-queue migrate
 ```
 
 ### Using npx
 ```bash
-PGHOST=localhost PGDATABASE=db npx postgres-queue migrate
+PGHOST=localhost PGDATABASE=db npx postgres-js-queue migrate
 ```
 
 You can also use a connection string:
 ```bash
-DATABASE_URL=postgres://user:pass@localhost:5432/db npx postgres-queue migrate
+DATABASE_URL=postgres://user:pass@localhost:5432/db npx postgres-js-queue migrate
 ```
 
-> **Note:** Use the full `postgres-queue` binary name for commands.
+> **Note:** Use the full `postgres-js-queue` binary name for commands.
 
 ## Quick Start
 
@@ -104,7 +104,7 @@ DATABASE_URL=postgres://user:pass@localhost:5432/db npx postgres-queue migrate
 
 ```typescript
 import postgres from 'postgres';
-import Queue from 'postgres-queue';
+import Queue from 'postgres-js-queue';
 
 interface EmailJob {
   to: string;
@@ -138,7 +138,7 @@ await emailQueue.listen(async (payload, job) => {
 
 ```typescript
 import postgres from 'postgres';
-import Queue from 'postgres-queue';
+import Queue from 'postgres-js-queue';
 import { z } from 'zod';
 
 // Define schema
@@ -184,7 +184,7 @@ await emailQueue.listen(async (payload, job) => {
 
 ```typescript
 import postgres from 'postgres';
-import Queue from 'postgres-queue';
+import Queue from 'postgres-js-queue';
 import * as v from 'valibot';
 
 const reportJobSchema = v.object({
@@ -601,7 +601,7 @@ class ValidationError extends Error {
 
 ```typescript
 import postgres from 'postgres';
-import Queue from 'postgres-queue';
+import Queue from 'postgres-js-queue';
 import { z } from 'zod';
 
 const emailJobSchema = z.object({

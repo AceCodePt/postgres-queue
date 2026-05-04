@@ -133,7 +133,7 @@ export async function runCli(argv = process.argv.slice(2)) {
   }
 
   console.log(`
-Usage: postgres-queue <command> [options]
+Usage: postgres-js-queue <command> [options]
 
 Commands:
   migrate    Run database migrations.

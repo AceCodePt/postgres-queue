@@ -1,6 +1,6 @@
 # Testing
 
-This directory contains integration tests for the postgres-queue library.
+This directory contains integration tests for the postgres-js-queue library.
 
 ## Setup
 

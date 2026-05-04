@@ -1,5 +1,5 @@
 {
-	"name": "postgres-queue",
+	"name": "postgres-js-queue",
 	"version": "0.1.0",
 	"description": "A minimalist, zero-dependency PostgreSQL queuing library for Node.js",
 	"type": "module",
@@ -12,7 +12,7 @@
 		}
 	},
 	"bin": {
-		"postgres-queue": "./dist/bin.js"
+		"postgres-js-queue": "./dist/bin.js"
 	},
 	"files": [
 		"dist",
@@ -51,6 +51,6 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AceCodePt/postgres-queue.git"
+		"url": "git+https://github.com/AceCodePt/postgres-js-queue.git"
 	}
 }
