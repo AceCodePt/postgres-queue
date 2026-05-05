@@ -166,12 +166,6 @@ await emailQueue.enqueue({
   body: '' 
 }); // ❌ Throws ValidationError
 
-// Broadcasts are also validated
-await emailQueue.enqueue(
-  { to: 'all@example.com', body: 'Maintenance' },
-  { broadcast: true }
-); // ✅ Validated before sending
-
 // Payload is validated and strongly typed
 await emailQueue.listen(async (payload, job) => {
   // payload is inferred as { to: string; body: string }
@@ -290,9 +284,9 @@ const emailQueue = Queue(sql, {
 });
 
 // Report queue with different schema
-const reportQueue = Queue<ReportJob>(sql, { channel: 'reports' });
+const reportQueue = Queue(sql, { channel: 'reports' });
 
-const notificationQueue = Queue<NotificationJob>(sql, { channel: 'notifications' });
+const notificationQueue = Queue(sql, { channel: 'notifications' });
 
 // Each queue processes only its own jobs
 await emailQueue.listen(async (payload, job) => {
